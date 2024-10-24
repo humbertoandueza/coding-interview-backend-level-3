@@ -1,4 +1,7 @@
 import Hapi from '@hapi/hapi'
+import 'dotenv/config'
+import { connectDB } from './db'
+import { MODE } from './enviroments'
 import { defineRoutes } from './routes'
 
 const getServer = () => {
@@ -8,7 +11,9 @@ const getServer = () => {
     })
 
     defineRoutes(server)
-
+    if(MODE !== 'test') {
+        connectDB()
+    }
     return server
 }
 

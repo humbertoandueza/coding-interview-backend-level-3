@@ -1,5 +1,5 @@
-import { initializeServer } from '../src/server'
 import { Server } from '@hapi/hapi'
+import { initializeServer } from '../src/server'
 
 describe('E2E Tests', () => {
     let server: Server
